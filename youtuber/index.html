@@ -119,3 +119,25 @@
 
     </body>
 </html>
+
+<script src="js/jquery-1.12.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".lnk").click(function () {
+            $(".lnk").removeClass("w3-text-red");
+            $(this).addClass("w3-text-red");
+        });
+
+        $(".part").hover(function () {
+            $(".lnk").removeClass("w3-text-red");
+            var id = $(this).attr("id");
+            $("." + id).addClass("w3-text-red");
+        });
+        
+        $("#dwn").click(function(){
+          $.get("downloads.php", function(data, status){
+            $("#dwns").text("number of downloads : "+data);
+          });
+        });
+    });
+</script>
