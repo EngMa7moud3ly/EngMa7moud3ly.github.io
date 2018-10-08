@@ -1,0 +1,61 @@
+﻿﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<meta name="description" content="numbers puzzle">
+	<meta name="keywords" content="puzzle">
+	<meta name="author" content="Mahmoud Aly - ma7moud3ly.com">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+	<link rel="stylesheet" href="css.css">
+	<title>Numbers Puzzle</title>
+
+</head>
+<body>
+
+	<center>
+
+		<div class="how-to">
+			<div>
+				<p>Swap the numbers by Drag and Drop on non-touch screen<br>Or click on the first number then the second</p>
+				<img width="200" src="img1.png">
+				<p>make the sum of 3 numbers in one<br>row/column/diagonal equlas to 15</p>
+				<img width="200" src="img2.png">
+			</div>
+		</div>
+
+		<div class="congrats">
+			<div>
+				<p><strong style="color:red">Congratulations</strong> you have done it in <label id="time"></label></p>
+			</div>
+		</div>
+
+		<div class="main">
+			<h1 id="title" style="color:red">NUMBERS PUZZLE</h1>
+			<div>
+				<label id="timer"></label>
+				<button id="help">How To</button>
+				<button id="play">Reset</button>
+			</div>
+			<br>
+			<div class="box" id="box">
+				<div class="num" id="n1" draggable="true">1</div>
+				<div class="num" id="n2" draggable="true" droppable="true">2</div>
+				<div class="num" id="n3" draggable="true">3</div>
+				<div class="num" id="n4" draggable="true">4</div>
+				<div class="num" id="n5" draggable="true">5</div>
+				<div class="num" id="n6" draggable="true">6</div>
+				<div class="num" id="n7" draggable="true">7</div>
+				<div class="num" id="n8" draggable="true">8</div>
+				<div class="num" id="n9" draggable="true">9</div>
+			</div>
+		</div>
+
+		<p>By : <a href="http://ma7moud3ly.com" target="_blank">Ma7moud 3ly</a> 
+			, source on <a href="https://github.com/Ma7moud3ly/numbers-buzzle" target="_blank">github</a></p>
+		</center>
+
+	</body>
+	</html>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="js.js"></script>
+
