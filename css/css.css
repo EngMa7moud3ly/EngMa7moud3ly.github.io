@@ -1,0 +1,102 @@
+html,body{width:100%;height:100%;overflow:hidden;}
+.center {
+    display: block;
+    margin: auto;
+}
+
+.center2 {
+    width: 50%;
+    padding: 20px;
+    margin-top:20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: -webkit-translate(-50%, -50%);
+    transform: -moz-translate(-50%, -50%);
+    transform: -ms-translate(-50%, -50%);
+}
+i.ico{
+    color:white;font-size:20px;
+}
+
+a{
+    font-family: 'Patrick Hand SC', cursive;
+    background-color:transparent;
+}
+
+.fonty{font-family: 'Patrick Hand SC', cursive;}
+.fonty2{  font-family: 'Orbitron', sans-serif;font-size:20px;}
+.fonty3{  font-family: 'Josefin Slab', serif;}
+.fonty4{font-family: 'Kaushan Script', cursive;line-height:40px;};
+
+header, main, footer {
+    padding-left: 220px;
+}
+
+main{height:100%}
+
+div.page{
+    height:100%;border-left:dashed white 3px;overflow-y:scroll;
+}
+
+ul{/*border:dashed white 2px;border-right:none;*/}
+.logo{border:dashed white 2px;padding:3px;}
+
+.contact-form{
+    width:300px;
+}
+
+#about{padding-top:30px;}
+main{margin-left:220px;}
+
+@media only screen and (max-width : 992px) {
+
+    header, main, footer {padding-left: 0;}
+    main{margin-left:0px;}
+    div.page{border-left:none}
+
+    #about{padding-top:0px;}
+
+    .contact-form{width:90%}
+
+    .project-img{width:100%;}
+
+    .project-details{width:70%;}
+
+}
+
+.project-container{width:100%;height:100%;padding:10px}
+
+.mySlides{height:100%;width:100%;}
+
+.project-img{
+    background-color: black;
+    width: 100%;height: 100%;max-width: 100%;max-height: 100%;
+    overflow-y: hidden;
+    overflow-x: visible scroll;
+}
+
+.project-skills{
+    margin-top:20px;
+    z-index: 4;
+}
+
+button.more{z-index:5;box-shadow: 0px 0px 3px #000;margin:5px;}
+
+.project-details{
+    text-align: center;
+    color: white;
+    width:100%;
+    background-color: rgba(0,0,0, 0.5);
+    /*background-color: rgba(255,150,0, 0.3);*/
+    font-family: 'Patrick Hand SC', cursive;
+    z-index: 3;
+    transition: 2s width
+}
+
+.chip>a{font-family: arial}
+
+#show-menu{position:fixed;margin:5px;z-index:1;color:red}
+.project-details>h2{font-size:30px;}
+.project-details>p{font-size:25px;}

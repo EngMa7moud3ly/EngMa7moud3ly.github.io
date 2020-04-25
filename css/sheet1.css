@@ -1,0 +1,124 @@
+.container{
+    width: 50%
+}
+
+h1{font-family: 'Bubbler One', sans-serif;font-weight:bold;}
+
+form {
+    border: 3px solid #f1f1f1;
+}
+
+.add{
+    margin: 10px;
+}
+
+.langs{margin-bottom:50px;}
+.langs>div{
+    display:inline;float:left;margin:10px;
+}
+
+i.tools{
+    margin:13px;
+    font-size:30px;
+    cursor: pointer;
+}
+
+li>img{width:50px;height:50px;;max-height:50px;max-width:50px;}
+
+input[type=text],input[type=email], input[type=password], input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    min-width: 100px;
+}
+
+input.inp{
+    width: 100%;
+    padding: 8px 15px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    min-width: 100px;
+}
+
+input[type=file] {
+    margin:10px;
+}
+
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+img.avatar {
+    min-width:50px;
+    border-radius: 50%;
+    border: #4CAF50 2px  dashed
+}
+img.cat_img {
+    width: 50px;
+    max-width: 50px;max-height: 50px;
+    min-width: 50px;min-height: 50px;
+    border-radius: 50%;
+    border: #4CAF50 2px  dashed
+}
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+.btns{border:0px;background-color:transparent;cursor:pointer}
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+/*prducts*/
+
+#prod_part{max-height:100%;}
+
+
+.company_tab{cursor:pointer}
+.prod_edit,.prod_list,.comp_list{width:46%;margin:2%;background-color: #f1f1f1;float:right;
+
+}
+.prod_edit>form>input{margin:5px;height:30px;width: 80%;}
+.prod_select{width:100%;}
+.prod_select>div{width:50%;float:right;margin:10px 0px 10px 0px;}
+.show_file{
+    font-size:10px;max-width:100px;max-height:45px;cursor:pointer;margin-top:5px;overflow: hidden;
+}
+
+@media screen and (max-width: 800px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+    .container{
+        width:90%;
+    }
+
+    .prod_edit,.prod_list,comp_list{width: 100%;}
+    .prod_edit>form>input{margin:5px;height:30px;width: 80%;}
+
+
+}
