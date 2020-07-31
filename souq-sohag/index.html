@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Souq Sohag Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/loading.css">
+    <link rel="stylesheet" href="css/sheet1.css">
+    <link href="https://fonts.googleapis.com/css?family=Bubbler+One" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right" style="display:none;width:25%;right:0"
+        id="mySidebar">
+        <center>
+            <br><img src="images/loginn-logo.png" alt="Avatar" style="width:35%;" class="avatar"><br><br>
+            <a href="#" class="w3-bar-item w3-button w3-center" id="cat">الفئات</a>
+            <a href="#" class="w3-bar-item w3-button w3-center" id="comp">الشركات</a>
+            <a href="#" class="w3-bar-item w3-button w3-center" id="prod">المنتجات</a>
+            <a href="#" class="w3-bar-item w3-button w3-center" id="ads">الاعلانات</a>
+            <a href="#" class="w3-bar-item w3-button w3-center" id="logout">تسجيل الخروج</a>
+        </center>
+    </div>
+
+    <div class="w3-main" id="main">
+
+        <div class="w3-green">
+            <div class="w3-container">
+                <button class="w3-button w3-teal w3-xlarge w3-right" style="margin: 10px" id="toggle">&#9776;</button>
+                <h1 class="w3-center">Souq Sohag</h1>
+            </div>
+        </div>
+
+        <div class="loader">
+            <div id="spinner">
+                <i style="font-size:100px;" class="tools spinner fa fa-spinner fa-spin w3-text-orange"></i>
+            </div>
+        </div>
+
+        <div class="w3-container parts w3-" style="direction:rtl;" id="cat_part">
+
+            <h2>الفئات</h2>
+            <div class="w3-responsive">
+                <table class="w3-table-all w3-center w3-centered" id="cat_items">
+                </table>
+            </div>
+
+            <button class="w3-button w3-red add w3-right" id="add_category">+</button>
+
+        </div>
+        <div class="w3-container parts w3-" style="direction:rtl;display:none" id="ads_part">
+
+            <h2>الأعلانات</h2>
+            <div class="w3-responsive">
+                <table class="w3-table-all w3-center w3-centered" id="ads_items">
+                </table>
+            </div>
+
+            <button class="w3-button w3-red add w3-right" id="add_ads">+</button>
+
+        </div>
+
+
+
+        <!-- *************** -->
+
+        <div class="w3-container parts" style="direction:rtl;display:none" id="comp_part">
+
+            <div class=" w3-center prod_edit w3-padding">
+
+                <div class=" w3-container">
+                    <div class="w3-half tablink w3-bottombar w3-padding company_tab" data="2">أقسام الشركة</div>
+                    <div class="w3-half tablink w3-bottombar 
+                             w3-padding w3-border-red company_tab" data="1">بيانات الشركة</div>
+                </div>
+
+                <br>
+                <form id="comp_upload" action="company_upload.php" method="post" enctype="multipart/form-data"
+                    style="border:none">
+                    <div class="comp_prod_select">
+                        <div>
+                            <label>الفئة</label>
+                            <select id="comp_cat">
+                            </select>
+                        </div>
+                    </div>
+                    <input style="height:45px" id="comp_name" type="text" placeholder="اسم الشركة" required />
+                    <input style="height:45px" id="comp_details" type="text" placeholder="معلومات عن الشركة" />
+                    <input style="height:45px" id="comp_prod" type="text" placeholder="منتجات الشركة" />
+                    <input style="height:45px" id="comp_address" type="text" placeholder="عنوان الشركة" />
+                    <input style="height:45px" id="comp_phone" type="text" placeholder="ارقام الشركة" />
+                    <input style="height:45px" id="comp_discount_code" type="text"
+                        placeholder="كود يحمله العميل للحصول على خصم" />
+                    <input style="height:45px" id="comp_discount_value" type="text"
+                        placeholder="قيمة الخصم لحامل الكود" />
+
+                    <input id="comp_id" type="hidden" />
+                    <input id="comp_num_imgs" type="hidden" />
+                    <input style="height:45px" id="comp_imgs" name="comp_imgs[]" type="file" placeholder="صور"
+                        multiple />
+                    <div>
+                        <i class="tools comp_spinner fa fa-spinner fa-spin w3-text-blue" style="display:none"></i>
+                        <button class="comp_btns comp_save" type="submit"><i class="tools fa fa-save"></i></button>
+                        <button class="comp_btns comp_new" type="reset"><i class="tools fa fa-file"></i></button>
+                    </div>
+                </form>
+                <div id="sub_comp_part" style="display: none">
+                    <h5 id="comp_depratments">أقسام الشركة</h5>
+                    <div class="w3-responsive">
+                        <table class="w3-table-all w3-center w3-centered" id="sub_comp_items">
+                        </table>
+                    </div>
+                    <button class="w3-button w3-red add w3-right" id="add_sub_comp">+</button>
+                </div>
+            </div>
+
+            <div class="prod_list w3-padding">
+                <input type="text" class="w3-text w3-padding w3-transparent" id="comp_search"
+                    placeholder="أبحث عن الشركات" />
+                <button class="w3-button" id="comp_search_btn">بحث</button><br><br>
+                <ul class="w3-ul w3-card-4" id="companies">
+                </ul>
+            </div>
+            <br>
+
+
+        </div>
+
+        <!--************************ -->
+
+        <div class="w3-container parts" style="direction:rtl;display:none" id="prod_part">
+
+            <div class=" w3-center prod_edit w3-padding">
+                <form id="product_upload" action="product_upload" method="post" enctype="multipart/form-data"
+                    style="border:none">
+                    <div class="prod_select">
+                        <div>
+                            <label>الشركة</label><br>
+                            <select id="prod_comp">
+                            </select>
+                        </div>
+                        <div>
+                            <label>القسم</label><br>
+                            <select id="prod_departs">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <input style="height:45px" id="prod_name" type="text" placeholder="اسم المنتج" required />
+                    <input style="height:45px" id="prod_details" type="text" placeholder="وصف المنتج" />
+                    <input style="height:45px" id="prod_discount" type="text" placeholder="السعر" />
+                    <input style="height:45px" id="prod_price" type="text" placeholder="السعر القديم" />
+                    <input id="prod_id" name="prod_id" type="hidden" />
+                    <input id="prod_num_imgs" type="hidden" />
+                    <input style="height:45px" id="products_imgs" name="imgs[]" type="file" placeholder="صور"
+                        multiple />
+                    <div>
+                        <i class="tools prod_spinner fa fa-spinner fa-spin w3-text-blue" style="display:none"></i>
+                        <button class="prod_btns prod_save" type="submit"><i class="tools fa fa-save"></i></button>
+                        <button class="prod_btns prod_new" type="reset"><i class="tools fa fa-file"></i></button>
+                    </div>
+                </form>
+                <br>
+            </div>
+
+            <div class="prod_list w3-padding">
+                <input type="text" class="w3-text w3-padding w3-transparent" id="search"
+                    placeholder="ابحث عن المنتجات" />
+                <button class="w3-button" id="prod_search_btn">بحث</button><br><br>
+                <ul class="w3-ul w3-card-4" id="products">
+                </ul>
+            </div>
+            <br>
+
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="js/jquery-1.12.1.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
+<script src="js/fbase/fbase.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/categories.js"></script>
+<script src="js/companies1.js"></script>
+<script src="js/companies2.js"></script>
+<script src="js/products.js"></script>
+<script src="js/ads.js"></script>
