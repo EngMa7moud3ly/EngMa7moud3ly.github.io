@@ -47,6 +47,7 @@ $(document).ready(function () {
         if (img == "") {
             img = "images/loginn-logo.png"
         } else {
+            img = "category%2F" + id + ".jpg"
             img = "https://firebasestorage.googleapis.com/v0/b/market-sohag.appspot.com/o/" + img + "?alt=media";
         }
         var x = `
@@ -81,7 +82,7 @@ $(document).ready(function () {
         if (id == "") return;
         db.ref('categories/' + id).set(null);
         if (img.startsWith("https")) {
-            storage.ref().child(id + '.jpg').delete().then(function () {
+            storage.ref().child("category/" + id + '.jpg').delete().then(function () {
             });
         }
         update();
@@ -108,7 +109,7 @@ $(document).ready(function () {
             var file = item.find(".upload").find(".img")[0].files[0]
             var img = id + ".jpg";
             loading(item)
-            storage.ref().child(img).put(file).then(function (snapshot) {
+            storage.ref().child("category/" + img).put(file).then(function (snapshot) {
                 db.ref('categories/' + id).update({ category: cat, img: img });
                 loaded(item)
                 update();

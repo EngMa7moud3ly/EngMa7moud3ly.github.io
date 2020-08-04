@@ -122,12 +122,14 @@ $(document).ready(function () {
             first = true;
         }
         var files = document.getElementById("comp_imgs").files
-
+        if (files.length > 0) { comp_num_imgs = files.length; $("#comp_num_imgs").val(comp_num_imgs) }
+        else if (comp_num_imgs == '0' || comp_num_imgs == '') comp_num_imgs = 0;
         var data = {
             name: name, details: details, address: address, prod: prod,
             category: category, code: code, discount: discount, phone: phone,
-            imgs: ((comp_num_imgs == '0' || comp_num_imgs == '') ? files.length : comp_num_imgs)
+            imgs: comp_num_imgs
         }
+        //console.log(data);
         add_multiple(data, files, id);
     });
     //send data query

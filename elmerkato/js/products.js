@@ -121,11 +121,13 @@ $(document).ready(function () {
             $("#prod_id").val(id);
             first = true;
         }
-        var files = document.getElementById("products_imgs").files
+        var files = document.getElementById("products_imgs").files;
+        if (files.length > 0) { prod_num_imgs = files.length; $("#prod_num_imgs").val(prod_num_imgs) }
+        else if (prod_num_imgs == '0' || prod_num_imgs == '') prod_num_imgs = 0;
         var data = {
             name: name, details: details, price: price, discount: discount, company: company,
             company_id: company_id, department_id: department_id, department: department,
-            imgs: ((prod_num_imgs == '0' || prod_num_imgs == '') ? files.length : prod_num_imgs)
+            imgs: prod_num_imgs
         }
         add_multiple(data, files, name, id);
     });
@@ -162,7 +164,7 @@ $(document).ready(function () {
 
     //edit product
     $("#products").on('click', 'i.prod-edit', function () {
-        var id = $(this).closest('li').attr("data");
+        var id = $(this).closest('li').attr("data_id");
         db.ref('products/' + id).once('value').then(function (snapshot) {
             var x = snapshot.val();
             $("#prod_id").val(id);
