@@ -29,7 +29,7 @@ function add_projects(name, details, img, langs, url) {
     var skills = "";
     for (var id in langs) {
         var lang = langs[id];
-        skills += `<div class="chip blue lighten-2 lighten-1  white-text left">` + lang + `</div>`
+        skills += `<div class="chip orange lighten-3  white-text left">` + lang + `</div>`
     }
     img = "https://firebasestorage.googleapis.com/v0/b/mahmoud-aly.appspot.com/o/" + img + "?alt=media";
     var txt = `<div class="w3-display-container mySlides">
@@ -72,8 +72,8 @@ $(document).ready(function () {
     $("#loader").hide();
 
     $(".project-container").click(function () {
-        $(this).find(".project-details").toggle()
-        $(this).find(".project-skills").toggle()
+        //$(this).find(".project-details").toggle()
+        //$(this).find(".project-skills").toggle()
 
     });
 

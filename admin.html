@@ -1,118 +1,144 @@
 <!DOCTYPE html>
 <html lang="ar" value="">
-    <head>
-        <meta charset="UTF-8">
-        <title>Mahmoud Aly</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/w3.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/loading.css">
-        <link rel="stylesheet" href="css/sheet1.css">
-        <link href="https://fonts.googleapis.com/css?family=Bubbler+One" rel="stylesheet">
-    </head>
 
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <title>Mahmoud Aly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/loading.css">
+    <link rel="stylesheet" href="assets/css/sheet1.css">
+    <link href="https://fonts.googleapis.com/css?family=Bubbler+One" rel="stylesheet">
+</head>
 
-        <div  class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right" style="display:none;width:25%;right:0" id="mySidebar" value="">
-            <center>
-                <br><img src="imgs/admin-logo.png" alt="Avatar" value=""  style="width:35%;" class="avatar" value=""><br><br>
-                <a href="index.html" class="w3-bar-item w3-button w3-center" value="" >الموقع</a>
-                <a href="#" class="w3-bar-item w3-button w3-center" value="" id="project">إضافة مشروع</a>
-                <a href="#" class="w3-bar-item w3-button w3-center" value="" id="logout">تسجيل الخروج</a>
-            </center>
+<body>
+
+    <div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right" style="display:none;width:25%;right:0"
+        id="mySidebar" value="">
+        <center>
+            <br><img src="assets/imgs/admin-logo.png" alt="Avatar" value="" style="width:35%;" class="avatar"
+                value=""><br><br>
+            <a href="index.html" class="w3-bar-item w3-button w3-center" value="">الموقع</a>
+            <a href="#" class="w3-bar-item w3-button w3-center" value="" id="project">إضافة مشروع</a>
+            <a href="#" class="w3-bar-item w3-button w3-center" value="" id="logout">تسجيل الخروج</a>
+        </center>
+    </div>
+
+    <div class="w3-main" id="main">
+
+        <div class="w3-green">
+            <div class="w3-container" value="">
+                <button class="w3-button w3-teal w3-xlarge w3-right" style="margin: 10px" id="toggle">&#9776;</button>
+                <h1 class="w3-center" value="">إضافة مشروع جديد</h1>
+            </div>
         </div>
 
-        <div class="w3-main" id="main">
-
-            <div class="w3-green">
-                <div class="w3-container" value="">
-                    <button class="w3-button w3-teal w3-xlarge w3-right" style="margin: 10px" id="toggle">&#9776;</button>
-                    <h1 class="w3-center" value="">إضافة مشروع جديد</h1>
-                </div>
+        <div class="loader" value="">
+            <div id="spinner" value="">
+                <i style="font-size:100px;" class="tools spinner fa fa-spinner fa-spin w3-text-orange"></i>
             </div>
+        </div>
 
-            <div class="loader" value="">
-                <div id="spinner" value="">
-                    <i style="font-size:100px;" class="tools spinner fa fa-spinner fa-spin w3-text-orange"></i>
-                </div>
-            </div>
-
-            <div class="w3-container parts">
-                <div class=" w3-center prod_edit w3-padding">
-                    <form id="upload" action="upload" method="post" enctype="multipart/form-data" style="border:none;direction: rtl">
-                        <input style="height:45px" id="name" type="text" placeholder="اسم المشروع" required/>
-                        <input style="height:45px" id="details" type="text" placeholder="وصف المشروع" required/>
-                        <input style="height:45px" id="url" type="text" placeholder="رابط المشروع"/>
-                        <div class="langs w3-center w3-centered w3-text-black ">
-                            <div><input type="checkbox" class="w3-input" name="r" value="html5"/><label>html5</label></div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="css3"/><label>css3</label></div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="w3css"/><label></label>w3css</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="bootstrap"/><label></label>bootstrap</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="materialize.css"/><label></label>materialize.css</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="javascript"/><label>javascript</label></div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="jquery"/><label>jquery</label></div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="canvas"/><label>canvas</label></div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="fabric.js"/><label>fabric.js</label></div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="svg"/><label></label>svg</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="xml"/><label></label>xml</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="json"/><label></label>json</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="ajax"/><label></label>ajax</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="node.js"/><label></label>node.js</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="google map api"/><label></label>google map api</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="php"/><label></label>php</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="web service"/><label></label>web service</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="data scrapping"/><label></label>data scrapping</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="firebase"/><label></label>firebase</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="mysql"/><label></label>mysql</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="sqlite"/><label></label>sqlite</div><br>
-                            <div><input type="checkbox" class="w3-input" name="r" value="vb.net"/><label></label>vb.net</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="c#"/><label></label>c#</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="python"/><label></label>python</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="perl"/><label></label>opencv</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="perl"/><label></label>perl</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="matlab"/><label></label>matlab</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="c"/><label></label>c</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="c++"/><label></label>c++</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="java"/><label></label>java</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="android"/><label></label>android</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="oop"/><label></label>oop</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="mvc"/><label></label>mvc</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="codeignitor"/><label></label>codeignitor</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="eclipse"/><label></label>eclipse</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="netbeans"/><label></label>netbeans</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="visual studio"/><label></label>visual studio</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="android studio"/><label></label>android studio</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="pic"/><label></label>pic</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="avr"/><label></label>avr</div>
-                            <div><input type="checkbox" class="w3-input" name="r" value="arduino"/><label></label>arduino</div>
-
+        <div class="w3-container parts">
+            <div class=" w3-center prod_edit w3-padding">
+                <form id="upload" action="upload" method="post" enctype="multipart/form-data"
+                    style="border:none;direction: rtl">
+                    <input style="height:45px" id="name" type="text" placeholder="اسم المشروع" required />
+                    <input style="height:45px" id="details" type="text" placeholder="وصف المشروع" required />
+                    <input style="height:45px" id="url" type="text" placeholder="رابط المشروع" />
+                    <div class="langs w3-center w3-centered w3-text-black ">
+                        <div><input type="checkbox" class="w3-input" name="r" value="html5" /><label>html5</label></div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="css3" /><label>css3</label></div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="w3css" /><label></label>w3css</div>
+                        <div><input type="checkbox" class="w3-input" name="r"
+                                value="bootstrap" /><label></label>bootstrap</div>
+                        <div><input type="checkbox" class="w3-input" name="r"
+                                value="materialize.css" /><label></label>materialize.css</div>
+                        <div><input type="checkbox" class="w3-input" name="r"
+                                value="javascript" /><label>javascript</label></div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="jquery" /><label>jquery</label>
                         </div>
-                        <input  id="id" name="id" type="hidden"/>
-                        <input style="height:45px" id="screenshot"  type="file" placeholder="صورة"/>
-                        <div>
-                            <i class="tools prod_spinner fa fa-spinner fa-spin w3-text-blue" style="display:none"></i>
-                            <button class="btns save" type="submit"><i class="tools fa fa-save"></i></button>
-                            <button class="btns new" type="reset"><i class="tools fa fa-file"></i></button>
+                        <div><input type="checkbox" class="w3-input" name="r" value="canvas" /><label>canvas</label>
                         </div>
-                    </form>
-                    <br>
-                </div>
+                        <div><input type="checkbox" class="w3-input" name="r"
+                                value="fabric.js" /><label>fabric.js</label></div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="svg" /><label></label>svg</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="xml" /><label></label>xml</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="json" /><label></label>json</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="ajax" /><label></label>ajax</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="node.js" /><label></label>node.js
+                        </div>
+                        <div><input type="checkbox" class="w3-input" name="r"
+                                value="google map api" /><label></label>google map api</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="php" /><label></label>php</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="web service" /><label></label>web
+                            service</div>
+                        <div><input type="checkbox" class="w3-input" name="r"
+                                value="data scrapping" /><label></label>data scrapping</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="firebase" /><label></label>firebase
+                        </div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="mysql" /><label></label>mysql</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="sqlite" /><label></label>sqlite
+                        </div><br>
+                        <div><input type="checkbox" class="w3-input" name="r" value="vb.net" /><label></label>vb.net
+                        </div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="c#" /><label></label>c#</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="python" /><label></label>python
+                        </div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="perl" /><label></label>opencv</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="perl" /><label></label>perl</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="matlab" /><label></label>matlab
+                        </div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="c" /><label></label>c</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="c++" /><label></label>c++</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="java" /><label></label>java</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="android" /><label></label>android
+                        </div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="oop" /><label></label>oop</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="mvc" /><label></label>mvc</div>
+                        <div><input type="checkbox" class="w3-input" name="r"
+                                value="codeignitor" /><label></label>codeignitor</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="eclipse" /><label></label>eclipse
+                        </div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="netbeans" /><label></label>netbeans
+                        </div>
+                        <div><input type="checkbox" class="w3-input" name="r"
+                                value="visual studio" /><label></label>visual studio</div>
+                        <div><input type="checkbox" class="w3-input" name="r"
+                                value="android studio" /><label></label>android studio</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="pic" /><label></label>pic</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="avr" /><label></label>avr</div>
+                        <div><input type="checkbox" class="w3-input" name="r" value="arduino" /><label></label>arduino
+                        </div>
 
-                <div class="prod_list w3-padding">
-                    <input type="text" class="w3-text w3-padding w3-transparent" id="search" 
-                           placeholder="ابحث عن المشروع"/>
-                    <ul class="w3-ul w3-card-4" id="projects">
-                    </ul>
-                </div>
+                    </div>
+                    <input id="id" name="id" type="hidden" />
+                    <input style="height:45px" id="screenshot" type="file" placeholder="صورة" />
+                    <div>
+                        <i class="tools prod_spinner fa fa-spinner fa-spin w3-text-blue" style="display:none"></i>
+                        <button class="btns save" type="submit"><i class="tools fa fa-save"></i></button>
+                        <button class="btns new" type="reset"><i class="tools fa fa-file"></i></button>
+                    </div>
+                </form>
                 <br>
-
             </div>
+
+            <div class="prod_list w3-padding">
+                <input type="text" class="w3-text w3-padding w3-transparent" id="search"
+                    placeholder="ابحث عن المشروع" />
+                <ul class="w3-ul w3-card-4" id="projects">
+                </ul>
+            </div>
+            <br>
+
         </div>
-    </body>
+    </div>
+</body>
 
 </html>
 
-<script src="js/jquery-2.1.1.min.js"></script>
+<script src="assets/js/jquery-2.1.1.min.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
@@ -121,7 +147,7 @@
 <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
 
-<script src="js/fbase/fbase.js"></script>
+<script src="assets/js/fbase/fbase.js"></script>
 
-<script src="js/admin.js"></script>
-<script src="js/fbase/project.js"></script>
+<script src="assets/js/admin.js"></script>
+<script src="assets/js/fbase/project.js"></script>

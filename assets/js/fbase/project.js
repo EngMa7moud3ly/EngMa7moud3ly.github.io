@@ -71,6 +71,7 @@ $(document).ready(function () {
         $("#id").val("");
         $("#img").val("");
     });
+
     //store new project data
     $('#upload').on('submit', function (e) {
         e.preventDefault();
@@ -128,6 +129,7 @@ $(document).ready(function () {
     //edit project
     $("#projects").on('click', 'i.edit', function () {
         $(".loader").show();
+        $("#screenshot").val("");
         var id = $(this).closest('li').attr("data");
         db.ref('projects/' + id).once('value').then(function (snapshot) {
             var x = snapshot.val();

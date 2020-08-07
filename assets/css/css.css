@@ -25,14 +25,13 @@ a{
     background-color:transparent;
 }
 
-.fonty{font-family: 'Patrick Hand SC', cursive;}
 .fonty2{  font-family: 'Orbitron', sans-serif;font-size:20px;}
 .fonty3{  font-family: 'Josefin Slab', serif;}
-.fonty4{font-family: 'Kaushan Script', cursive;line-height:40px;};
+.fonty4{font-family: 'Playball', cursive;line-height:40px;font-size:50px}
+.fonty5{font-family: 'Playball', cursive;font-size:18px;line-height:60px;}
 
-header, main, footer {
-    padding-left: 220px;
-}
+strong{font-weight: bolder;}
+
 
 main{height:100%}
 
