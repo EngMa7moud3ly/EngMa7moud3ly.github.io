@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Paint</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+	<meta name="description" content="painting tool written in javascript and fabric.js">
+	<meta name="keywords" content="paint,painting,draw,Fabric.js,canvas">
+	<meta name="author" content="Mahmoud Aly">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="css/css.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+
+	<center>
+		<div class="toolbar">
+			<i id="pointer" class="fa fa-mouse-pointer" title="pointer - shortcut p"></i> 
+			<i id="pen" class="fa fa-pencil" title="pen - shortcut enter"></i>
+			<i id="bg" class="fa fa-file-o" title="background color"></i>
+			<input id="bg-color" style="display: none" type="color" value="#FFFFFF" />
+			<i id="pcolor" class="fa fa-circle-o" style="color: red" title="pen color"></i>
+			<input id="pen-color" style="display: none" type="color" value="#FF0000""/>
+			<input id="line-width" max="150" min="0" type="range" value="30" title="line width"/>
+			<i id="text" class="fa fa-font" title="insert text"></i>
+			<i id="image" class="fa fa-image" title="insert image"></i>
+			<i id="clear" class="fa fa-eraser" title="clear - shortcut c"></i>
+			<i id="redo" class="fa fa-undo" title="redo"></i>
+			<i id="undo" class="fa fa-undo" title="undo"></i>
+			<i id="download" class="fa fa-download" title="download"></i>
+			<i id="help" class="fa fa-info-circle" title="help"></i>
+
+		</div>
+	</center>
+
+	<div id="main">
+		<div class="line-width-icon"></div>
+		
+		<i id="delete" class="fa fa-archive"></i>
+
+		<div id="image_box" align="center">
+			<div>Drop an image here</div>
+			<i id="add_image" class="fa fa-check-circle"></i>
+		</div>
+
+		<div id="text_box">
+			<input id="text_text" placeholder="write text here" type="text">
+			<input id="text_font_size" placeholder="font size" type="number" value="20">
+			<i id="add_text" class="fa fa-check-circle"></i> 
+		</div>
+
+
+		<center><canvas id="sheet"></canvas> </center>
+
+	</div>
+
+
+</body>
+</html>
+
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/fabric.min.js" type="text/javascript"></script>
+<script src="js/js.js" type="text/javascript"></script>
+<script src="js/drop_image.js" type="text/javascript"></script>
