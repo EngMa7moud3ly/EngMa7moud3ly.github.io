@@ -5,9 +5,9 @@
 <div align="left">
 
 #### My Portfolio [Ma7moud3ly.github.io](https://Ma7moud3ly.github.io)
-#### Painting Application [Paint](Ma7moud3ly.github.io/paint)
-#### Number Puzzle [Puzzle](Ma7moud3ly.github.io/numbers-buzzle)
-#### Youtube Dwonloader [Youtuber](Ma7moud3ly.github.io/youtuber)
+#### Painting Application [Paint](https://Ma7moud3ly.github.io/paint)
+#### Number Puzzle [Puzzle](https://Ma7moud3ly.github.io/numbers-buzzle)
+#### Youtube Dwonloader [Youtuber](https://Ma7moud3ly.github.io/youtuber)
 
 </div>
 <br>
