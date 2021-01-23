@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     function refresh() {
         $(".loader").show();
-        db.ref('companies/').once('value').then(function (snapshot) {
+        db.ref('public/companies/').once('value').then(function (snapshot) {
             $('#prod_comp').find('option').remove().end();
             $("#prod_comp").append("<option selected></option>");
             var x = snapshot.val();
@@ -35,7 +35,7 @@ $(document).ready(function () {
         var id = $('option:selected', $("#prod_comp")).attr('data');
         var company = $('option:selected', $("#prod_comp")).val();
         $(".loader").show();
-        db.ref('companies/' + id + '/departs').once('value').then(function (snapshot) {
+        db.ref('public/companies/' + id + '/departs').once('value').then(function (snapshot) {
             $('#prod_departs').find('option').remove().end();
             var x = snapshot.val();
             for (var depart_id in x) {
@@ -53,7 +53,7 @@ $(document).ready(function () {
     function update_products(search) {
         $('#products').find('li').remove().end();
         if (search == "" || search.trim() == "") return;
-        db.ref('products/').once('value').then(function (snapshot) {
+        db.ref('public/products/').once('value').then(function (snapshot) {
             var x = snapshot.val();
             for (var id in x) {
                 var xx = x[id];
@@ -71,7 +71,7 @@ $(document).ready(function () {
         if (imgs == 0 || imgs == '' || imgs == undefined) {
             img = "images/loginn-logo.png"
         } else {
-            img = "products%2F0" + id + ".jpg"
+            img = "products%2F" + id + "__1.jpg"
             img = "https://firebasestorage.googleapis.com/v0/b/market-sohag.appspot.com/o/" + img + "?alt=media";
         }
         var x =
@@ -140,19 +140,19 @@ $(document).ready(function () {
         let j = files.length
         if (j == 0) {
             $(".loader").hide();
-            db.ref('products/' + id).update(data);
+            db.ref('public/products/' + id).update(data);
             update_products(name);
             _loaded();
         }
         else {
             for (let i = 0; i < files.length; i++) {
                 file = files[i];
-                img = "products/" + i + id + ".jpg"
+                img = "public/products/" + id + "__" + (i + 1) + ".jpg"
                 storage.ref().child(img).put(file).then(function (snapshot) {
                     j--;
                     if (j == 0) {
                         $(".loader").hide();
-                        db.ref('products/' + id).update(data);
+                        db.ref('public/products/' + id).update(data);
                         update_products(name);
                         _loaded();
                     }
@@ -165,7 +165,7 @@ $(document).ready(function () {
     //edit product
     $("#products").on('click', 'i.prod-edit', function () {
         var id = $(this).closest('li').attr("data_id");
-        db.ref('products/' + id).once('value').then(function (snapshot) {
+        db.ref('public/products/' + id).once('value').then(function (snapshot) {
             var x = snapshot.val();
             $("#prod_id").val(id);
             $("#prod_comp").val(x.company);
@@ -180,9 +180,9 @@ $(document).ready(function () {
     $("#products").on('click', 'i.prod-del', function () {
         var id = $(this).closest('li').attr("data_id");
         var imgs = $(this).closest('li').attr("data_imgs");
-        db.ref('products/' + id).set(null);
+        db.ref('public/products/' + id).set(null);
         for (var i = 0; i < imgs; i++) {
-            img = "products/" + i + id + ".jpg"
+            img = "public/products/" + i + id + ".jpg"
             storage.ref().child(img).delete().then(function () {
             });
         }

@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     function update() {
         $(".loader").show();
-        db.ref('ads/').once('value').then(function (snapshot) {
+        db.ref('public/ads/').once('value').then(function (snapshot) {
             var x = snapshot.val();
             $('#ads_items').find('tr').remove().end();
             for (var id in x) {
@@ -57,7 +57,7 @@ $(document).ready(function () {
         var item = $(this).closest('tr');
         var id = item.find(".img_id").val();
         if (id == "") return;
-        db.ref('ads/' + id).set(null);
+        db.ref('public/ads/' + id).set(null);
         storage.ref().child("ads/" + id + '.jpg').delete().then(function () {
             update();
         });

@@ -61,7 +61,7 @@ $(document).ready(function () {
         var comp_id = $("#comp_id").val();
         var img = item.find(".sub_img").attr("src");
         if (sub_id == "") return;
-        db.ref('companies/' + comp_id + '/departs/' + sub_id).set(null);
+        db.ref('public/companies/' + comp_id + '/departs/' + sub_id).set(null);
         if (img.startsWith("https")) {
             storage.ref().child("company/departs/" + sub_id + '.jpg').delete().then(function () {
             });
@@ -86,7 +86,7 @@ $(document).ready(function () {
         }
         var id = item.find(".img_sub_id").val();
         if (id == "") {
-            id = db.ref().child('companies/' + comp_id + "/departs").push().key;
+            id = db.ref().child('public/companies/' + comp_id + "/departs").push().key;
             item.find(".img_id").val(id);
             first = true;
         }
@@ -95,21 +95,21 @@ $(document).ready(function () {
             var file = item.find(".upload").find(".img")[0].files[0]
             var img = "company/departs/" + id + ".jpg"
             storage.ref().child(img).put(file).then(function (snapshot) {
-                db.ref('companies/' + comp_id + '/departs/' + id).update({ name: name, img: 1 });
+                db.ref('public/companies/' + comp_id + '/departs/' + id).update({ name: name, img: 1 });
                 update(comp_id);
                 sub_comp_loaded(item);
             });
         }//no image selected
         else {
             var data = first ? { name: name, img: "" } : { name: name }
-            db.ref('companies/' + comp_id + '/departs/' + id).update(data);
+            db.ref('public/companies/' + comp_id + '/departs/' + id).update(data);
             update(comp_id);
         }
     });
 
     function update(comp_id) {
         $(".loader").show();
-        db.ref('companies/' + comp_id + '/departs').once('value').then(function (snapshot) {
+        db.ref('public/companies/' + comp_id + '/departs').once('value').then(function (snapshot) {
             var x = snapshot.val();
             $('#sub_comp_items').find('tr').remove().end();
             for (var sub_id in x) {

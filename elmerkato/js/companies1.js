@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     function refresh() {
         $(".loader").show();
-        db.ref('categories/').once('value').then(function (snapshot) {
+        db.ref('public/categories/').once('value').then(function (snapshot) {
             $('#comp_cat').find('option').remove().end();
             var x = snapshot.val();
             for (var id in x) {
@@ -36,7 +36,7 @@ $(document).ready(function () {
     });
 
     function company_list_update(search) {
-        db.ref('companies/').once('value').then(function (snapshot) {
+        db.ref('public/companies/').once('value').then(function (snapshot) {
             var x = snapshot.val();
             $('#companies').find('li').remove().end();
             for (var id in x) {
@@ -56,7 +56,7 @@ $(document).ready(function () {
         if (imgs == 0 || imgs == '' || imgs == undefined) {
             img = "images/loginn-logo.png"
         } else {
-            img = "company%2F0" + id + ".jpg"
+            img = "company%2F" + id + "__1.jpg"
             img = "https://firebasestorage.googleapis.com/v0/b/market-sohag.appspot.com/o/" + img + "?alt=media";
         }
         var x =
@@ -139,7 +139,7 @@ $(document).ready(function () {
         let j = files.length
 
         if (j == 0) {
-            db.ref('companies/' + id).update(data);
+            db.ref('public/companies/' + id).update(data);
             _new();
             _loaded();
             company_list_update("");
@@ -147,11 +147,11 @@ $(document).ready(function () {
         } else {
             for (let i = 0; i < files.length; i++) {
                 file = files[i];
-                img = "company/" + i + id + ".jpg"
+                img = "company/" + id + "__" + (i + 1) + ".jpg"
                 storage.ref().child(img).put(file).then(function (snapshot) {
                     j--;
                     if (j == 0) {
-                        db.ref('companies/' + id).update(data);
+                        db.ref('public/companies/' + id).update(data);
                         _new();
                         _loaded();
                         company_list_update("");
@@ -164,7 +164,7 @@ $(document).ready(function () {
     //edit company
     $("#companies").on('click', 'i.comp-edit', function () {
         var id = $(this).closest('li').attr("data_id");
-        db.ref('companies/' + id).once('value').then(function (snapshot) {
+        db.ref('public/companies/' + id).once('value').then(function (snapshot) {
             var x = snapshot.val();
             $("#comp_id").val(id);
             $("#comp_num_imgs").val(x.imgs);
@@ -193,7 +193,7 @@ $(document).ready(function () {
     $("#companies").on('click', 'i.comp-del', function () {
         var id = $(this).closest('li').attr("data_id");
         var imgs = $(this).closest('li').attr("data_imgs");
-        db.ref('companies/' + id).set(null);
+        db.ref('public/companies/' + id).set(null);
         for (var i = 0; i < imgs; i++) {
             img = "company/" + i + id + ".jpg"
             storage.ref().child(img).delete().then(function () {

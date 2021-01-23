@@ -17,7 +17,7 @@ $(document).ready(function () {
 
     function update() {
         $(".loader").show();
-        db.ref('categories/').once('value').then(function (snapshot) {
+        db.ref('public/categories/').once('value').then(function (snapshot) {
             var x = snapshot.val();
             $('#cat_items').find('tr').remove().end();
             $('#cat_items').append(head);
@@ -80,7 +80,7 @@ $(document).ready(function () {
         var id = item.find(".img_id").val();
         var img = item.find(".cat_img").attr("src");
         if (id == "") return;
-        db.ref('categories/' + id).set(null);
+        db.ref('public/categories/' + id).set(null);
         if (img.startsWith("https")) {
             storage.ref().child("category/" + id + '.jpg').delete().then(function () {
             });
@@ -110,14 +110,14 @@ $(document).ready(function () {
             var img = id + ".jpg";
             loading(item)
             storage.ref().child("category/" + img).put(file).then(function (snapshot) {
-                db.ref('categories/' + id).update({ category: cat, img: img });
+                db.ref('public/categories/' + id).update({ category: cat, img: img });
                 loaded(item)
                 update();
             });
         }//no image selected
         else {
             var data = first ? { category: cat, img: "" } : { category: cat }
-            db.ref('categories/' + id).update(data);
+            db.ref('public/categories/' + id).update(data);
         }
         update();
     }
